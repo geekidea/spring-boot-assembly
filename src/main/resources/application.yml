@@ -1,0 +1,13 @@
+server:
+  servlet:
+    context-path: /example
+
+spring:
+  application:
+    name: spring-boot-assembly
+
+  # 当前maven打包的profile
+  profiles:
+    active: @profileActive@
+
+hello: Hello spring-boot-assembly

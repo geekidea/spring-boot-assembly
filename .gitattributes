@@ -1,0 +1,4 @@
+*.java linguist-language=java
+*.xml linguist-language=java
+*.sh linguist-language=java
+*.bat linguist-language=java
