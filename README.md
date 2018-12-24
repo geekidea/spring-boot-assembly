@@ -166,6 +166,7 @@
 ```
     
 #### 5.maven-dependency-plugin 复制项目的依赖包到指定目录
+
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -186,10 +187,11 @@
             </configuration>
         </execution>
     </executions>
-</plugin>  
-```  
-    
+</plugin>
+```
+
 #### 6.maven-resources-plugin
+
 ```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -197,7 +199,7 @@
     <version>3.1.0</version>
 </plugin>
 ```
-   
+
 ```xml
 <resource>
     <directory>src/main/resources</directory>
