@@ -5,7 +5,7 @@
 # boot目录: spring boot jar包
 # config目录: 配置文件目录
 # logs目录: 项目运行日志目录
-# logs/spring-boot-assembly_startup.log: 记录启动日志
+# logs/startup.log: 记录启动日志
 # logs/back目录: 项目运行日志备份目录
 # nohup后台运行
 #
@@ -14,10 +14,10 @@
 #======================================================================
 
 # 项目名称
-APPLICATION="spring-boot-assembly"
+APPLICATION="@project.name@"
 
 # 项目启动jar包名称
-APPLICATION_JAR="${APPLICATION}.jar"
+APPLICATION_JAR="@build.finalName@.jar"
 
 # bin目录绝对路径
 BIN_PATH=$(cd `dirname $0`; pwd)
@@ -41,11 +41,11 @@ LOG_PATH="${LOG_DIR}/${LOG_FILE}"
 LOG_BACK_DIR="${LOG_DIR}/back/"
 
 # 项目启动日志输出绝对路径
-LOG_STARTUP_PATH="${LOG_DIR}/${APPLICATION}_startup.log"
+LOG_STARTUP_PATH="${LOG_DIR}/startup.log"
 
 # 当前时间
 NOW=`date +'%Y-%m-%m-%H-%M-%S'`
-NOW_PRETTY=`'date +%Y-%m-%m %H:%M:%S'`
+NOW_PRETTY=`date +'%Y-%m-%m %H:%M:%S'`
 
 # 启动日志
 STARTUP_LOG="================================================ ${NOW_PRETTY} ================================================\n"
@@ -69,7 +69,7 @@ fi
 echo "" > ${LOG_PATH}
 
 # 如果项目启动日志不存在,则创建,否则追加
-echo "${STARTUP_LOG}" >> ${LOG_STARTUP_PATH}
+#echo "${STARTUP_LOG}" >> ${LOG_STARTUP_PATH}
 
 #==========================================================================================
 # JVM Configuration
@@ -91,11 +91,13 @@ JAVA_OPT="${JAVA_OPT} -XX:-OmitStackTraceInFastThrow"
 # 输出项目名称
 STARTUP_LOG="${STARTUP_LOG}application name: ${APPLICATION}\n"
 # 输出jar包名称
-STARTUP_LOG="${STARTUP_LOG}application jar name: ${APPLICATION_JAR}\n"
-# 输出项目bin路径
-STARTUP_LOG="${STARTUP_LOG}application bin  path: ${BIN_PATH}\n"
+STARTUP_LOG="${STARTUP_LOG}application jar  name: ${APPLICATION_JAR}\n"
 # 输出项目根目录
 STARTUP_LOG="${STARTUP_LOG}application root path: ${BASE_PATH}\n"
+# 输出项目bin路径
+STARTUP_LOG="${STARTUP_LOG}application bin  path: ${BIN_PATH}\n"
+# 输出项目config路径
+STARTUP_LOG="${STARTUP_LOG}application config path: ${CONFIG_DIR}\n"
 # 打印日志路径
 STARTUP_LOG="${STARTUP_LOG}application log  path: ${LOG_PATH}\n"
 # 打印JVM配置
@@ -103,7 +105,7 @@ STARTUP_LOG="${STARTUP_LOG}application JAVA_OPT : ${JAVA_OPT}\n"
 
 
 # 打印启动命令
-STARTUP_LOG="${STARTUP_LOG}application background startup command: nohup java ${JAVA_OPT} -jar ${BASE_PATH}/boot/${APPLICATION_JAR} --spring.config.location=${CONFIG_DIR} > ${LOG_PATH} 2>&1 &\n"
+STARTUP_LOG="${STARTUP_LOG}application startup command: nohup java ${JAVA_OPT} -jar ${BASE_PATH}/boot/${APPLICATION_JAR} --spring.config.location=${CONFIG_DIR} > ${LOG_PATH} 2>&1 &\n"
 
 
 #======================================================================

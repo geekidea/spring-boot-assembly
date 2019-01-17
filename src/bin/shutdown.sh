@@ -10,10 +10,10 @@
 #======================================================================
 
 # 项目名称
-APPLICATION="spring-boot-assembly"
+APPLICATION="@project.name@"
 
 # 项目启动jar包名称
-APPLICATION_JAR="${APPLICATION}.jar"
+APPLICATION_JAR="@build.finalName@.jar"
 
 PID=$(ps -ef | grep "${APPLICATION_JAR}" | grep -v grep | awk '{ print $2 }')
 if [[ -z "$PID" ]]

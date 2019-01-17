@@ -1,5 +1,37 @@
 # spring-boot-assembly CHANGELOG
 
+
+环境名称
+local
+@profileActive@
+
+target目录
+E:\\github\\spring-boot-assembly\\target
+@build.directory@
+
+target/classes源代码和配置文件输出目录
+E:\\github\\spring-boot-assembly\\target\\classes
+@build.outputDirectory@
+
+打包后，启动jar包的名称
+spring-boot-assembly
+@build.finalName@
+
+源代码目录，java代码
+E:\\github\\spring-boot-assembly\\src\\main\\java
+@build.sourceDirectory@
+
+项目根目录
+E:\\github\\spring-boot-assembly
+@basedir@
+
+项目名称
+spring-boot-assembly
+@project.name@
+
+
+
+
 ### 1.2.RELEASE  2018-12-23
 ##### 优化mvn-package.bat命令
 

@@ -10,7 +10,10 @@
 #======================================================================
 
 # 项目名称
-APPLICATION="spring-boot-assembly"
+APPLICATION="@project.name@"
+
+# 项目启动jar包名称
+APPLICATION_JAR="@build.finalName@.jar"
 
 # 停服
 echo stop ${APPLICATION} Application...

@@ -9,7 +9,7 @@
 
 ## 代码托管
 
-> **[Github](https://github.com/geekidea/spring-boot-assembly)** | **[Gitee](https://gitee.com/geekideaio/spring-boot-assembly)**
+> **[Github](https://github.com/geekidea/spring-boot-assembly)** | **[Gitee](https://gitee.com/geekidea/spring-boot-assembly)**
 
 
 ### 主要插件
@@ -493,7 +493,7 @@ kill -9 ${PID}
 ##### 项目启动日志存储路径，一个项目只有一个启动日志文件
 
 ```bash
-logs/spring-boot-assembly_startup.log
+logs/startup.log
 ```
 
 ```text
@@ -554,7 +554,7 @@ http://localhost:8080/example/hello?name=123
     |   |-- spring-boot-assembly_back_2018-12-12-23-30-10.log
     |   `-- spring-boot-assembly_back_2018-12-12-23-36-56.log
     |-- spring-boot-assembly.log
-    `-- spring-boot-assembly_startup.log
+    `-- startup.log
 ```
     
 #### maven项目打包

@@ -7,4 +7,22 @@ spring:
   application:
     name: spring-boot-assembly
 
+# local环境jdbc配置
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:spring-boot-assembly
+    username: root
+    password: root
+    driver-class-name: org.h2.Driver
+    # 每次启动程序,都会执行该SQL脚本
+    schema: classpath:db/schema.sql
+    # 每次启动程序,都会执行该SQL脚本
+    data: classpath:db/data.sql
+    sql-script-encoding: utf-8
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
 hello: Hello Local
