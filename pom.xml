@@ -105,6 +105,8 @@
                     <include>mapper/**/*.xml</include>
                     <include>static/**</include>
                     <include>templates/**</include>
+                    <include>application.yml</include>
+                    <include>application-${profileActive}.yml</include>
                     <!-- 如果各个环境的jks都是一样，则可以直接打入到启动jar包中 -->
                     <!--<include>test.jks</include>-->
                 </includes>
@@ -174,16 +176,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
+               <configuration>
+                    <classifier>boot</classifier>
                     <layout>ZIP</layout>
-                    <includes>
-                        <!-- 项目启动jar包中排除依赖包 -->
-                        <include>
-                            <groupId>non-exists</groupId>
-                            <artifactId>non-exists</artifactId>
-                        </include>
-                    </includes>
+                    <executable>true</executable>
+                    <excludeDevtools>true</excludeDevtools>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
